@@ -78,6 +78,12 @@ class Hypergraph:
         labels = set(self.hg.all_attributes())
         self.assertEqual(labels, set())
 
+    def test_get_attributes(self):
+        self.hg.destroy()
+        edge = hedge('(is/Pd graphbrain/Cp great/C)')
+        self.hg.add(edge)
+        self.assertEqual(self.hg.get_attributes(edge), {'p': 1, 'd': 0, 'dd': 0})
+        
     # exists, add, remove
     def test_ops1(self):
         self.hg.destroy()

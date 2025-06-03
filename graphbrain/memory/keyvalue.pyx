@@ -50,6 +50,10 @@ class KeyValue(Hypergraph, ABC):
     # Implementation of interface methods
     # ===================================
 
+    def get_attributes(self, edge):
+        key = self._edge2key(edge)
+        return self._attribute_key(key)
+
     def name(self):
         return self.locator_string
 

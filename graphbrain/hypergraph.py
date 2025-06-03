@@ -52,6 +52,11 @@ class Hypergraph(object):
         dictionary of attribute names to values."""
         raise NotImplementedError()
 
+    def get_attributes(self, edge):
+        """Return all attributes of an edge, represented as a
+        dictionary of attribute names to values."""
+        raise NotImplementedError()
+
     def begin_transaction(self):
         pass
 

@@ -2,8 +2,6 @@
 
 ## [0.7.0] - ongoing
 ### Added
-- Web app / UI.
-- Symbolic pattern learner.
 - patterns.is_wildcard().
 - Base class hypergraph.memory.keyvalue.KeyValue for key-value hypergraph databases, removing redundant code between LevelDB and SQLite.
 - Tests for LevelDB (only the SQLite Hypergraph implementation was being directly tested).
@@ -12,6 +10,7 @@
 - Parser-level inference of coreferences between proper nouns.
 - Parser.parse_and_add() now adds token information to the main edge of a sentence: the attribute 'tokens' contains the list of tokens and 'tok_pos' a structure with the token position for each atom in the edge.
 - Post-processing step improves parser.
+- Hypergraph.get_attributes().
 
 ### Changed
 - Python >=3.9 now required.
