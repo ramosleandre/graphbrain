@@ -82,7 +82,7 @@ setup(
     version=VERSION,
     author='Telmo Menezes et al.',
     author_email='telmo@telmomenezes.net',
-    description='Knowledge System + Natural Language Understanding',
+    description='Semantic Hypergraphs Tools',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://graphbrain.net',
@@ -92,7 +92,6 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Environment :: Console',
         'Intended Audience :: Science/Research',
