@@ -1,8 +1,14 @@
 from contextlib import contextmanager
 
 from graphbrain.hyperedge import hedge
-import graphbrain.memory.leveldb
 import graphbrain.memory.sqlite
+
+# Try to import LevelDB support, but make it optional
+try:
+    import graphbrain.memory.leveldb
+    LEVELDB_AVAILABLE = True
+except ImportError:
+    LEVELDB_AVAILABLE = False
 
 
 def hgraph(locator_string):
@@ -17,6 +23,11 @@ def hgraph(locator_string):
         if extension in {'sqlite', 'sqlite3', 'db'}:
             return graphbrain.memory.sqlite.SQLite(locator_string)
         elif extension in {'leveldb', 'hg'}:
+            if not LEVELDB_AVAILABLE:
+                raise RuntimeError(
+                    'LevelDB support is not available. '
+                    'Please install plyvel and LevelDB 1.22, or use SQLite instead (.db extension).'
+                )
             return graphbrain.memory.leveldb.LevelDB(locator_string)
     raise RuntimeError('Unknown hypergraph database type.')
 

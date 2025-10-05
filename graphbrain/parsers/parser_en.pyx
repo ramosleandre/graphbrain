@@ -1,4 +1,4 @@
-import pkg_resources
+import importlib.resources
 
 import spacy
 
@@ -74,7 +74,18 @@ class ParserEN(AlphaBeta):
              
         super().__init__(nlp, lemmas=lemmas, corefs=corefs, beta=beta, normalize=normalize, post_process=post_process)
         self.lang = LANG
-        cases_str = pkg_resources.resource_string('graphbrain', 'data/atoms-en.csv').decode('utf-8')
+
+        # Load resource using importlib.resources (Python 3.9+)
+        try:
+            # Try Python 3.9+ API
+            from importlib.resources import files
+            data_path = files('graphbrain').joinpath('data/atoms-en.csv')
+            cases_str = data_path.read_text(encoding='utf-8')
+        except (ImportError, AttributeError):
+            # Fallback for older Python versions
+            import importlib.resources as pkg_res
+            cases_str = pkg_res.read_text('graphbrain.data', 'atoms-en.csv')
+
         self.alpha = Alpha(cases_str)
 
     # ===========================================

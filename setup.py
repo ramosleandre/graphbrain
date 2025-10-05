@@ -65,15 +65,14 @@ install_requires = [
         'networkx',
         # fixed for now because of spacy
         'numpy', # ==1.26.4',
-        'plyvel',
+        # 'plyvel',  # Moved to extras_require for optional LevelDB support
         'progressbar2',
         'scikit-learn',
         'spacy',
         # 'spacy-experimental==0.6.1',
-        'spacy-transformers',
+        # spacy-transformers and torch moved to extras_require['transformers']
         'termcolor',
         'thinc',
-        'torch',
         'trafilatura',
     ]
 
@@ -107,7 +106,31 @@ setup(
             'cython >=0.25',
             'pytest',
             'Sphinx',
-            'sphinx_rtd_theme'
+            'sphinx_rtd_theme',
+            'ruff',
+            'black'
+        ],
+        'leveldb': [
+            'plyvel'
+        ],
+        'transformers': [
+            'spacy-transformers',
+            'torch'
+        ],
+        'embeddings': [
+            'sentence-transformers',
+            'chromadb'
+        ],
+        'full': [
+            'plyvel',
+            'spacy-transformers',
+            'torch',
+            'sentence-transformers',
+            'chromadb',
+            'google-cloud-aiplatform',
+            'openai',
+            'pydantic',
+            'pydantic-settings'
         ]
     },
     package_data={'': ['data/*.csv']},

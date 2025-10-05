@@ -62,10 +62,47 @@ __pycache__
 #####################
 .ipynb_checkpoints
 
-# hg and db files #
-#####################
+# Graphbrain databases #
+#########################
 *.hg
+*.leveldb
 *.db
+*.sqlite
+*.sqlite3
+example*.db
+example*.hg
+test_install.db
+demo*.db
+demo*.hg
+medical*.db
+medical*.hg
 
+# Visualization outputs #
+#########################
+*.graphml
+*.dot
+*.json
+output_graph.*
+graph.*
 
+# Cache directories #
+#####################
+.cache/
+*.cache/
+embeddings_cache/
 
+# Virtual environments #
+########################
+gcpu_env/
+gcpu_env/*
+venv/
+.venv/
+env/
+ENV/
+
+# Temp/test files #
+###################
+leveldb.rb
+test_léandre.py
+*.tmp
+*.bak
